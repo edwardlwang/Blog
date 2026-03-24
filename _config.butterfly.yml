@@ -82,9 +82,9 @@ social:
 # Image Settings
 # --------------------------------------
 
-# favicon: /img/blog.ico
+favicon: /img/blog.ico
 # favicon: fas fa-blog
-favicon: fas fa-pen-to-square
+# favicon: fas fa-pen-to-square
 
 avatar:
   img: /img/Awa Subaru.JPG
