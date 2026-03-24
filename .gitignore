@@ -3,7 +3,7 @@ node_modules/
 .DS_Store
 Thumbs.db
 
-.db.json
+db.json
 .deploy_git/
 
 *.log
