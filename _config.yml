@@ -107,7 +107,8 @@ theme: butterfly
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: "git"
-  repo: https://github.com/edwardlwang/edwardlwang.github.io.git
+  #repo: https://github.com/edwardlwang/edwardlwang.github.io.git
+  repo: git@github.com:edwardlwang/edwardlwang.github.io.git
   branch: main
 
 markdown:
