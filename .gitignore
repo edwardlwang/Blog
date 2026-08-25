@@ -11,3 +11,5 @@ db.json
 .deploy*/
 
 _config.landscape.yml
+
+public/
