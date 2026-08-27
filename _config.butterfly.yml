@@ -48,6 +48,8 @@ menu:
     游戏: /games/ || fas fa-gamepad
     音乐: /music/ || fas fa-music
     书籍: /books/ || fas fa-book
+  学习||fas fa fa-pencil || hide:
+    力扣: /leetcode/ || fas fa-code
   友链: /link/ || fas fa-link
   # 关于: /about/ || fas fa-heart
 
