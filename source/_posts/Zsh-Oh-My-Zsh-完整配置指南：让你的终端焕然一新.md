@@ -15,15 +15,15 @@ Zsh（Z Shell）是 Bash 的现代替代品，拥有更丰富的自动补全、�
 
 ---
 
-## 1. 安装 Zsh
+## 安装 Zsh
 
-### 1.1 系统要求
+### 系统要求
 
 - Linux 操作系统（本文以 Ubuntu 20.04/22.04 为例，其他发行版类似）
 - 拥有 `sudo` 权限
 - 稳定的网络连接（用于下载插件和字体）
 
-### 1.2 安装命令
+### 安装命令
 
 #### Ubuntu / Debian
 
@@ -45,7 +45,7 @@ sudo dnf install zsh git curl wget fontconfig -y
 sudo pacman -S zsh git curl wget
 ```
 
-### 1.3 验证并切换默认 Shell
+### 验证并切换默认 Shell
 
 查看 Zsh 版本：
 
@@ -65,7 +65,7 @@ chsh -s $(which zsh)
 
 ---
 
-## 2. 安装 Oh My Zsh
+## 安装 Oh My Zsh
 
 使用官方安装脚本一键安装：
 
@@ -77,21 +77,21 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 ---
 
-## 3. 安装 Powerlevel10k 主题
+## 安装 Powerlevel10k 主题
 
 Powerlevel10k 是 Oh My Zsh 最流行的主题，速度极快且高度可定制，支持丰富的状态提示和图标。
 
-### 3.1 安装必要字体
+### 安装必要字体
 
 Powerlevel10k 依赖 Nerd Font 显示特殊符号，推荐安装 **JetBrainsMono Nerd Font Mono**。
 
-### 3.2 下载 Powerlevel10k
+### 下载 Powerlevel10k
 
 ```bash
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
 
-### 3.3 修改主题配置
+### 修改主题配置
 
 编辑 `~/.zshrc`：
 
@@ -111,11 +111,11 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 p10k configure
 ```
 
-## 4. 安装实用插件
+## 安装实用插件
 
 Oh My Zsh 自带 `git` 等基础插件，但以下第三方插件能大幅提升使用体验。
 
-### 4.1 zsh-autosuggestions（命令自动建议）
+### zsh-autosuggestions（命令自动建议）
 
 根据历史记录实时提示你可能要输入的命令，按 `→` 键补全。
 
@@ -123,7 +123,7 @@ Oh My Zsh 自带 `git` 等基础插件，但以下第三方插件能大幅提升
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 ```
 
-### 4.2 zsh-syntax-highlighting（语法高亮）
+### zsh-syntax-highlighting（语法高亮）
 
 输入命令时，合法命令显示为绿色，非法命令显示为红色，非常直观。
 
@@ -133,7 +133,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.
 
 > **重要**：该插件必须放在 `plugins` 列表的**最后一位**，否则会影响其他插件功能。
 
-### 4.3 zsh-autocomplete（智能补全）
+### zsh-autocomplete（智能补全）
 
 快速、上下文感知的命令补全，按 Tab 即可展示候选列表。
 
@@ -141,7 +141,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.
 git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git $ZSH_CUSTOM/plugins/zsh-autocomplete
 ```
 
-### 4.4 其他推荐插件（可选）
+### 其他推荐插件（可选）
 
 | 插件名称                   | 功能说明                          |
 | -------------------------- | --------------------------------- |
@@ -152,7 +152,7 @@ git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git $ZS
 
 ---
 
-## 5. 启用插件与配置更新
+## 启用插件与配置更新
 
 编辑 `~/.zshrc`，将 `plugins=(git)` 修改为：
 
@@ -178,9 +178,9 @@ source ~/.zshrc
 
 ---
 
-## 6. 个性化进阶设置
+## 个性化进阶设置
 
-### 6.1 增加历史记录容量
+### 增加历史记录容量
 
 在 `~/.zshrc` 末尾添加：
 
@@ -189,13 +189,13 @@ HISTSIZE=10000
 SAVEHIST=10000
 ```
 
-### 6.2 记录历史命令时间戳
+### 记录历史命令时间戳
 
 ```bash
 echo 'HIST_STAMPS="yyyy-mm-dd"' >> ~/.zshrc
 ```
 
-### 6.3 自定义别名
+### 自定义别名
 
 创建独立文件 `~/.zshrc.local` 存放个人别名，避免与主配置混淆：
 
@@ -213,7 +213,7 @@ echo 'alias python="python3"' >> ~/.zshrc.local
 
 ---
 
-## 7. 一键安装脚本（自动化方案）
+## 一键安装脚本（自动化方案）
 
 如果你不想手动一步步操作，可以使用社区一键脚本（需谨慎，建议先阅读源码）：
 
@@ -225,7 +225,7 @@ curl -fsSL https://raw.githubusercontent.com/joytianya/install-zsh/main/install-
 
 ---
 
-## 8. 常见问题与排错
+## 常见问题与排错
 
 ### Q1：终端仍然显示 Bash，而非 Zsh？
 
@@ -254,7 +254,7 @@ chsh -s /bin/bash
 
 ---
 
-## 9. 目录结构一览
+## 目录结构一览
 
 | 路径                           | 说明                       |
 | ------------------------------ | -------------------------- |
