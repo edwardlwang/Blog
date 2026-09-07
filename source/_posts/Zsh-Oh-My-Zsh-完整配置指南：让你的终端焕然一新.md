@@ -71,6 +71,9 @@ chsh -s $(which zsh)
 
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# 国内镜像
+sh -c "$(curl -fsSL https://gitee.com/mirrors/oh-my-zsh/raw/master/tools/install.sh)"
 ```
 
 安装过程中会询问是否将 Zsh 设置为默认 Shell，输入 `Y` 确认。安装完成后，`~/.zshrc` 配置文件会自动生成，默认主题为 `robbyrussell`。
@@ -89,6 +92,9 @@ Powerlevel10k 依赖 Nerd Font 显示特殊符号，推荐安装 **JetBrainsMono
 
 ```bash
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+# 国内镜像
+git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
 
 ### 修改主题配置
@@ -121,6 +127,9 @@ Oh My Zsh 自带 `git` 等基础插件，但以下第三方插件能大幅提升
 
 ```bash
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+# 国内镜像
+git clone https://gitee.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 ```
 
 ### zsh-syntax-highlighting（语法高亮）
@@ -129,6 +138,9 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 
 ```bash
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+# 国内镜像
+git clone https://gitee.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
 
 > **重要**：该插件必须放在 `plugins` 列表的**最后一位**，否则会影响其他插件功能。
@@ -139,6 +151,9 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.
 
 ```bash
 git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git $ZSH_CUSTOM/plugins/zsh-autocomplete
+
+# 国内镜像
+git clone --depth 1 -- https://gitee.com/marlonrichert/zsh-autocomplete.git $ZSH_CUSTOM/plugins/zsh-autocomplete
 ```
 
 ### 其他推荐插件（可选）
