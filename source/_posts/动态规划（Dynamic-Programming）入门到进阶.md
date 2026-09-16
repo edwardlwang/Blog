@@ -15,11 +15,13 @@ categories: Algorithms
 
 斐波那契数列大家都会写：
 
-```python
-def fib(n):
-    if n <= 1:
-        return n
-    return fib(n - 1) + fib(n - 2)
+> 本文示例统一用 C++ 编写，默认已经 `#include <bits/stdc++.h>` 并 `using namespace std;`。
+
+```cpp
+int fib(int n) {
+    if (n <= 1) return n;
+    return fib(n - 1) + fib(n - 2);
+}
 ```
 
 这段代码的递归树长这样（以 `fib(5)` 为例）：
@@ -40,14 +42,17 @@ def fib(n):
 
 如果第一次算出 `fib(3)` 时，就把它记在小本本上，下次直接查表，那复杂度立刻降到 $O(n)$。这就是动态规划最朴素的形态：**记忆化搜索**。
 
-```python
-from functools import lru_cache
+```cpp
+const int MAXN = 100;
+int memo[MAXN];          // 初始化为 -1，表示「还没算过」
 
-@lru_cache(maxsize=None)
-def fib(n):
-    if n <= 1:
-        return n
-    return fib(n - 1) + fib(n - 2)
+int fib(int n) {
+    if (n <= 1) return n;
+    if (memo[n] != -1) return memo[n];
+    return memo[n] = fib(n - 1) + fib(n - 2);
+}
+
+// 调用前先 memset(memo, -1, sizeof(memo));
 ```
 
 ---
@@ -101,9 +106,9 @@ dp[i] = max(dp[i-1], dp[i-2] + nums[i])
 
 最小的、不能再拆的状态是什么？它们的值是多少？
 
-```python
-dp[0] = 0
-dp[1] = 1
+```cpp
+dp[0] = 0;
+dp[1] = 1;
 ```
 
 ### 4️⃣ 确定遍历顺序
@@ -135,14 +140,17 @@ $$dp[i] = dp[i-1] + dp[i-2]$$
 
 **初始化**：`dp[0] = 1`（原地不动算一种），`dp[1] = 1`
 
-```python
-def climbStairs(n: int) -> int:
-    if n <= 1:
-        return 1
-    prev, curr = 1, 1
-    for _ in range(2, n + 1):
-        prev, curr = curr, prev + curr
-    return curr
+```cpp
+int climbStairs(int n) {
+    if (n <= 1) return 1;
+    int prev = 1, curr = 1;
+    for (int i = 2; i <= n; ++i) {
+        int next = prev + curr;
+        prev = curr;
+        curr = next;
+    }
+    return curr;
+}
 ```
 
 这里只用了两个变量，因为 `dp[i]` 只依赖前两项——这就是**滚动数组**思想的雏形。
@@ -161,12 +169,16 @@ def climbStairs(n: int) -> int:
 
 $$dp[i] = \max(dp[i-1],\ dp[i-2] + nums[i])$$
 
-```python
-def rob(nums: list[int]) -> int:
-    prev, curr = 0, 0   # prev = dp[i-2], curr = dp[i-1]
-    for num in nums:
-        prev, curr = curr, max(curr, prev + num)
-    return curr
+```cpp
+int rob(vector<int>& nums) {
+    int prev = 0, curr = 0;   // prev = dp[i-2], curr = dp[i-1]
+    for (int num : nums) {
+        int next = max(curr, prev + num);
+        prev = curr;
+        curr = next;
+    }
+    return curr;
+}
 ```
 
 ---
@@ -194,29 +206,36 @@ $$dp[i][j] = \max\Big(dp[i-1][j],\ dp[i-1][j-w_i] + v_i\Big)$$
 
 **二维写法**：
 
-```python
-def knapsack(w, v, C):
-    n = len(w)
-    dp = [[0] * (C + 1) for _ in range(n + 1)]
-    for i in range(1, n + 1):
-        for j in range(C + 1):
-            dp[i][j] = dp[i - 1][j]
-            if j >= w[i - 1]:
-                dp[i][j] = max(dp[i][j], dp[i - 1][j - w[i - 1]] + v[i - 1])
-    return dp[n][C]
+```cpp
+int knapsack(const vector<int>& w, const vector<int>& v, int C) {
+    int n = w.size();
+    vector<vector<int>> dp(n + 1, vector<int>(C + 1, 0));
+    for (int i = 1; i <= n; ++i) {
+        for (int j = 0; j <= C; ++j) {
+            dp[i][j] = dp[i - 1][j];
+            if (j >= w[i - 1]) {
+                dp[i][j] = max(dp[i][j], dp[i - 1][j - w[i - 1]] + v[i - 1]);
+            }
+        }
+    }
+    return dp[n][C];
+}
 ```
 
 **一维优化（重点）**：
 
 观察发现，`dp[i][*]` 只依赖 `dp[i-1][*]`，所以可以把第一维压掉。但**容量必须逆序遍历**：
 
-```python
-def knapsack(w, v, C):
-    dp = [0] * (C + 1)
-    for i in range(len(w)):
-        for j in range(C, w[i] - 1, -1):   # ← 逆序！
-            dp[j] = max(dp[j], dp[j - w[i]] + v[i])
-    return dp[C]
+```cpp
+int knapsack(const vector<int>& w, const vector<int>& v, int C) {
+    vector<int> dp(C + 1, 0);
+    for (int i = 0; i < (int)w.size(); ++i) {
+        for (int j = C; j >= w[i]; --j) {   // ← 逆序！
+            dp[j] = max(dp[j], dp[j - w[i]] + v[i]);
+        }
+    }
+    return dp[C];
+}
 ```
 
 > 🤔 **为什么必须逆序？**
@@ -227,10 +246,12 @@ def knapsack(w, v, C):
 
 **完全背包**（物品可以无限取）：
 
-```python
-for i in range(len(w)):
-    for j in range(w[i], C + 1):   # ← 正序
-        dp[j] = max(dp[j], dp[j - w[i]] + v[i])
+```cpp
+for (int i = 0; i < (int)w.size(); ++i) {
+    for (int j = w[i]; j <= C; ++j) {   // ← 正序
+        dp[j] = max(dp[j], dp[j - w[i]] + v[i]);
+    }
+}
 ```
 
 ---
@@ -247,16 +268,19 @@ for i in range(len(w)):
 
 $$dp[i] = \max_{j<i,\ nums[j]<nums[i]}\big(dp[j]\big) + 1$$
 
-```python
-def lengthOfLIS(nums: list[int]) -> int:
-    if not nums:
-        return 0
-    dp = [1] * len(nums)
-    for i in range(len(nums)):
-        for j in range(i):
-            if nums[j] < nums[i]:
-                dp[i] = max(dp[i], dp[j] + 1)
-    return max(dp)   # 答案不是 dp[-1]，而是全局最大值
+```cpp
+int lengthOfLIS(const vector<int>& nums) {
+    if (nums.empty()) return 0;
+    vector<int> dp(nums.size(), 1);
+    for (int i = 0; i < (int)nums.size(); ++i) {
+        for (int j = 0; j < i; ++j) {
+            if (nums[j] < nums[i]) {
+                dp[i] = max(dp[i], dp[j] + 1);
+            }
+        }
+    }
+    return *max_element(dp.begin(), dp.end());   // 答案不是 dp.back()，而是全局最大值
+}
 ```
 
 时间复杂度 $O(n^2)$。用贪心 + 二分可以优化到 $O(n\log n)$。
@@ -279,17 +303,21 @@ dp[i-1][j-1] + 1, & \text{若 } text1[i-1] = text2[j-1] \\[4pt]
 \end{cases}
 $$
 
-```python
-def longestCommonSubsequence(text1: str, text2: str) -> int:
-    m, n = len(text1), len(text2)
-    dp = [[0] * (n + 1) for _ in range(m + 1)]
-    for i in range(1, m + 1):
-        for j in range(1, n + 1):
-            if text1[i - 1] == text2[j - 1]:
-                dp[i][j] = dp[i - 1][j - 1] + 1
-            else:
-                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
-    return dp[m][n]
+```cpp
+int longestCommonSubsequence(const string& text1, const string& text2) {
+    int m = text1.size(), n = text2.size();
+    vector<vector<int>> dp(m + 1, vector<int>(n + 1, 0));
+    for (int i = 1; i <= m; ++i) {
+        for (int j = 1; j <= n; ++j) {
+            if (text1[i - 1] == text2[j - 1]) {
+                dp[i][j] = dp[i - 1][j - 1] + 1;
+            } else {
+                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
+            }
+        }
+    }
+    return dp[m][n];
+}
 ```
 
 注意：多开一行一列作为**哨兵**，表示「空串」，可以省去大量边界判断。这是二维 DP 的通用技巧。
@@ -307,23 +335,25 @@ def longestCommonSubsequence(text1: str, text2: str) -> int:
 - 字符相同：`dp[i-1][j-1]`
 - 字符不同：`min(替换, 删除, 插入) + 1`
 
-```python
-def minDistance(word1: str, word2: str) -> int:
-    m, n = len(word1), len(word2)
-    dp = [[0] * (n + 1) for _ in range(m + 1)]
-    for i in range(m + 1):
-        dp[i][0] = i          # 全删
-    for j in range(n + 1):
-        dp[0][j] = j          # 全插
-    for i in range(1, m + 1):
-        for j in range(1, n + 1):
-            if word1[i - 1] == word2[j - 1]:
-                dp[i][j] = dp[i - 1][j - 1]
-            else:
-                dp[i][j] = min(dp[i - 1][j - 1],   # 替换
-                               dp[i - 1][j],       # 删除
-                               dp[i][j - 1]) + 1   # 插入
-    return dp[m][n]
+```cpp
+int minDistance(const string& word1, const string& word2) {
+    int m = word1.size(), n = word2.size();
+    vector<vector<int>> dp(m + 1, vector<int>(n + 1, 0));
+    for (int i = 0; i <= m; ++i) dp[i][0] = i;   // 全删
+    for (int j = 0; j <= n; ++j) dp[0][j] = j;   // 全插
+    for (int i = 1; i <= m; ++i) {
+        for (int j = 1; j <= n; ++j) {
+            if (word1[i - 1] == word2[j - 1]) {
+                dp[i][j] = dp[i - 1][j - 1];
+            } else {
+                dp[i][j] = min({dp[i - 1][j - 1],    // 替换
+                                dp[i - 1][j],        // 删除
+                                dp[i][j - 1]}) + 1;  // 插入
+            }
+        }
+    }
+    return dp[m][n];
+}
 ```
 
 ---
@@ -335,15 +365,18 @@ def minDistance(word1: str, word2: str) -> int:
 **状态**：`dp[j]` = 凑出金额 j 的最少硬币数
 **转移**：$dp[j] = \min(dp[j],\ dp[j - coin] + 1)$
 
-```python
-def coinChange(coins: list[int], amount: int) -> int:
-    INF = float('inf')
-    dp = [INF] * (amount + 1)
-    dp[0] = 0
-    for coin in coins:                # 物品在外
-        for j in range(coin, amount + 1):
-            dp[j] = min(dp[j], dp[j - coin] + 1)
-    return dp[amount] if dp[amount] != INF else -1
+```cpp
+int coinChange(const vector<int>& coins, int amount) {
+    const int INF = 1e9;              // 足够大，且 +1 不会溢出
+    vector<int> dp(amount + 1, INF);
+    dp[0] = 0;
+    for (int coin : coins) {          // 物品在外
+        for (int j = coin; j <= amount; ++j) {
+            dp[j] = min(dp[j], dp[j - coin] + 1);
+        }
+    }
+    return dp[amount] == INF ? -1 : dp[amount];
+}
 ```
 
 > 这是**完全背包**的变体（每种硬币无限个），所以内层正序。
@@ -362,21 +395,26 @@ DP 的空间往往可以压缩。规律如下：
 
 以编辑距离为例，二维压一维需要额外记录被覆盖的 `dp[i-1][j-1]`：
 
-```python
-def minDistance(word1: str, word2: str) -> int:
-    m, n = len(word1), len(word2)
-    dp = list(range(n + 1))
-    for i in range(1, m + 1):
-        prev = dp[0]        # 保存 dp[i-1][j-1]
-        dp[0] = i
-        for j in range(1, n + 1):
-            temp = dp[j]
-            if word1[i - 1] == word2[j - 1]:
-                dp[j] = prev
-            else:
-                dp[j] = min(prev, dp[j], dp[j - 1]) + 1
-            prev = temp
-    return dp[n]
+```cpp
+int minDistance(const string& word1, const string& word2) {
+    int m = word1.size(), n = word2.size();
+    vector<int> dp(n + 1);
+    for (int j = 0; j <= n; ++j) dp[j] = j;
+    for (int i = 1; i <= m; ++i) {
+        int prev = dp[0];   // 保存 dp[i-1][j-1]
+        dp[0] = i;
+        for (int j = 1; j <= n; ++j) {
+            int temp = dp[j];
+            if (word1[i - 1] == word2[j - 1]) {
+                dp[j] = prev;
+            } else {
+                dp[j] = min({prev, dp[j], dp[j - 1]}) + 1;
+            }
+            prev = temp;
+        }
+    }
+    return dp[n];
+}
 ```
 
 ---
@@ -385,23 +423,25 @@ def minDistance(word1: str, word2: str) -> int:
 
 两种写法本质等价，选哪个看个人习惯和题目特点。
 
-```python
-# 写法一：记忆化搜索（自顶向下）
-def solve(n, memo={}):
-    if n in memo:
-        return memo[n]
-    if n <= 2:
-        return n
-    memo[n] = solve(n - 1) + solve(n - 2)
-    return memo[n]
+```cpp
+// 写法一：记忆化搜索（自顶向下）
+int memo[100];   // 初始化为 -1
 
-# 写法二：递推（自底向上）
-def solve(n):
-    dp = [0] * (n + 1)
-    dp[0], dp[1] = 1, 1
-    for i in range(2, n + 1):
-        dp[i] = dp[i - 1] + dp[i - 2]
-    return dp[n]
+int solve(int n) {
+    if (n <= 2) return n;
+    if (memo[n] != -1) return memo[n];
+    return memo[n] = solve(n - 1) + solve(n - 2);
+}
+
+// 写法二：递推（自底向上）
+int solve(int n) {
+    vector<int> dp(n + 1);
+    dp[0] = dp[1] = 1;
+    for (int i = 2; i <= n; ++i) {
+        dp[i] = dp[i - 1] + dp[i - 2];
+    }
+    return dp[n];
+}
 ```
 
 |      | 记忆化搜索                 | 递推                     |
@@ -422,7 +462,7 @@ def solve(n):
 3. **初始化遗漏** —— 求最小值时忘记把 `dp` 初始化成 `INF`，结果全是 0。
 4. **答案位置搞错** —— LIS 的答案是 `max(dp)` 而不是 `dp[n-1]`。
 5. **数组越界** —— 二维 DP 建议开 `(m+1) × (n+1)`，用哨兵行/列处理边界。
-6. **整数溢出** —— 用 `float('inf')` 时注意 `inf + 1` 仍然是 `inf`，但 `inf - inf` 会变成 `nan`。
+6. **整数溢出** —— 用 `INT_MAX` 当无穷大时，`INT_MAX + 1` 会溢出成负数，最值判断就全错了；建议用 `0x3f3f3f3f` 或 `1e9` 这类「足够大但加了 1 也不会溢出」的值。
 
 ---
 
