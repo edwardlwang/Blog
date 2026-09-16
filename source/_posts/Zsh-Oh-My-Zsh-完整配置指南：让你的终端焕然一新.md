@@ -1,8 +1,8 @@
 ---
 title: Zsh + Oh My Zsh 完整配置指南：让你的终端焕然一新
 date: 2026-09-01 11:23:29
-tags: [Linux, Zsh, Oh My Zsh, 终端, 主题, 插件]
-categories: [Linux]
+tags: Linux, Zsh, Oh My Zsh, 终端, 主题, 插件
+categories: Linux
 ---
 
 > 如果你还在使用默认的 Bash 终端，那可能错过了许多提升生产力的神器。本文将手把手带你安装、配置 Zsh 及 Oh My Zsh，并集成美观的主题和实用的插件，让你的终端焕然一新。
