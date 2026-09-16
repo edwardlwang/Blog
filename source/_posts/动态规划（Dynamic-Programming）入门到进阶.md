@@ -1,7 +1,9 @@
 ---
 title: 动态规划（Dynamic Programming）入门到进阶
 date: 2026-09-16 15:45:32
-tags: [Algorithms, Dynamic Programming]
+tags:
+  - Algorithms
+  - Dynamic Programming
 categories: Algorithms
 ---
 

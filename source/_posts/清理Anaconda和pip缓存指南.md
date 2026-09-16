@@ -1,7 +1,10 @@
 ---
 title: 清理Anaconda和pip缓存指南
 date: 2026-09-01 11:10:38
-tags: [conda, pip, cache]
+tags:
+  - conda
+  - pip
+  - cache
 categories: O&M
 ---
 

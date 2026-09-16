@@ -1,7 +1,9 @@
 ---
 title: C++ 迭代器详解：从 unordered_map 的 find 与 operator[] 说起
 date: 2026-09-10 15:31:48
-tags: [C++, iterator]
+tags:
+  - C++
+  - iterator
 ---
 
 在刷算法题时，我们经常会用到 `unordered_map`。一个常见的场景是判断某个单词是否在哈希表中，并减少它的计数。很多人会写出这样的代码：

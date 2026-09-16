@@ -1,7 +1,13 @@
 ---
 title: Zsh + Oh My Zsh 完整配置指南：让你的终端焕然一新
 date: 2026-09-01 11:23:29
-tags: [Linux, Zsh, Oh My Zsh, 终端, 主题, 插件]
+tags:
+  - Linux
+  - Zsh
+  - Oh My Zsh
+  - 终端
+  - 主题
+  - 插件
 categories: Linux
 ---
 

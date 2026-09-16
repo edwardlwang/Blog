@@ -1,7 +1,11 @@
 ---
 title: Tmux 使用指南
 date: 2026-09-07 10:45:09
-tags: [Tmux, Linux, Shell, SSH]
+tags:
+  - Tmux
+  - Linux
+  - Shell
+  - SSH
 categories: Linux
 ---
 

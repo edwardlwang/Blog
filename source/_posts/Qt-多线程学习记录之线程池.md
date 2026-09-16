@@ -1,7 +1,10 @@
 ---
 title: Qt 多线程使用
 date: 2026-07-14 16:41:00
-tags: [Qt, C++, multithreading]
+tags:
+  - Qt
+  - C++
+  - multithreading
 categories: Qt
 ---
 

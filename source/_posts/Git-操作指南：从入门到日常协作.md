@@ -1,7 +1,9 @@
 ---
 title: Git 操作指南：从入门到日常协作
 date: 2026-09-09 16:11:15
-tags: [Git, Linux]
+tags:
+  - Git
+  - Linux
 ---
 
 > 无论是个人项目还是团队开发，Git 都是现代软件工程的基石。  

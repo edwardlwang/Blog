@@ -1,7 +1,11 @@
 ---
 title: 如何解决Linux和Windows双系统时间不同步
 date: 2026-01-17 13:43:03
-tags: [Windows, Linux, Ubuntu, time]
+tags:
+  - Windows
+  - Linux
+  - Ubuntu
+  - time
 categories: Linux
 ---
 

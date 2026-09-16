@@ -1,7 +1,11 @@
 ---
 title: 解决类原生安卓（如 LineageOS）显示 WiFi 网络受限问题
 date: 2026-01-22 19:19:51
-tags: [Android, LineageOS, WiFi, ADB]
+tags:
+  - Android
+  - LineageOS
+  - WiFi
+  - ADB
 categories: Android
 ---
 
