@@ -4,7 +4,7 @@ date: 2026-09-16 15:45:32
 tags:
   - Dynamic Programming
   - 动态规划
-categories: Algorithms
+categories: Algorithm
 ---
 
 > 动态规划不是一种具体的算法，而是一种**思考问题的方式**。它的核心思想是：**把大问题拆成小问题，把重复计算的结果存起来，用空间换时间。**
