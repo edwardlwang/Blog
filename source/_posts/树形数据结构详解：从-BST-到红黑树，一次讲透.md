@@ -6,7 +6,7 @@ tags:
   - AVL
   - B-tree
   - Trie
-categories: data structure
+categories: Data Structure
 ---
 
 ## 前言
