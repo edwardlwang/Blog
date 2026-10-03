@@ -32,5 +32,10 @@
     "katex": "^0.16.28",
     "linkify-it": "^6.1.0",
     "markdown-it": "^15.0.0"
+  },
+  "allowScripts": {
+    "hexo-util@3.3.0": true,
+    "hexo-util@2.7.0": true,
+    "hexo-util@4.0.0": true
   }
 }
