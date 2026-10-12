@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Edward 的博客
+title: Edward's Blog
 subtitle: "科技与生活"
 description: "一个关于科技与生活的博客。"
 keywords: Hexo, Blog, Technology, Life
@@ -173,12 +173,12 @@ leetcodecalendar:
   showIcon: true # 是否显示日历中间的 LeetCode logo
   color:
     # ===== 浅色模式 =====
-    submitColor: '#000' # 难度栏里「已通过题数」的数字颜色
-    bgColor: '#fff' # 日历背景色
-    subColors: ['#ebedf0', '#bef5cb', '#85e89d', '#34d058', '#1c992f'] # 由浅到深的 5 档色阶
+    submitColor: "#000" # 难度栏里「已通过题数」的数字颜色
+    bgColor: "#fff" # 日历背景色
+    subColors: ["#ebedf0", "#bef5cb", "#85e89d", "#34d058", "#1c992f"] # 由浅到深的 5 档色阶
     # ===== 深色模式 =====
     # 博客切到夜间模式时自动换用下面这套，不需要额外配置；
     # 不写这三项就用默认值（即下面注释里的值，取自 GitHub 深色主题的热力图）
-    darkSubmitColor: '#c9d1d9' # 深色下的数字颜色（默认 #c9d1d9）
-    darkBgColor: '#161b22' # 深色下的日历背景色（默认 #161b22）
-    darkSubColors: ['#21262d', '#0e4429', '#006d32', '#26a641', '#39d353'] # 深色下的 5 档色阶（默认 #21262d/#0e4429/#006d32/#26a641/#39d353）
+    darkSubmitColor: "#c9d1d9" # 深色下的数字颜色（默认 #c9d1d9）
+    darkBgColor: "#161b22" # 深色下的日历背景色（默认 #161b22）
+    darkSubColors: ["#21262d", "#0e4429", "#006d32", "#26a641", "#39d353"] # 深色下的 5 档色阶（默认 #21262d/#0e4429/#006d32/#26a641/#39d353）
