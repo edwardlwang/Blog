@@ -161,3 +161,24 @@ douban:
       - wish
       - collect
     option:
+
+# LeetCode 提交日历（hexo-leetcode-calendar-for-butterfly 插件）
+## 用法：在文章或页面里写 {% leetcode 用户名 %} 就会插入日历
+## 注意：必须写在本文件（站点配置）里；写到 _config.butterfly.yml 是无效的
+## 「用户名」是力扣中文站个人主页 https://leetcode.cn/u/xxxx/ 里的 xxxx，不是昵称
+## 热力图全灰 → 说明你的力扣主页没有公开提交记录，去个人设置里公开即可
+leetcodecalendar:
+  enable: true # 是否启用；false 时所有 leetcode 标签都不渲染
+  submitGap: 5 # 色阶间隔：每提交 5 次，格子颜色升高一档
+  showIcon: true # 是否显示日历中间的 LeetCode logo
+  color:
+    # ===== 浅色模式 =====
+    submitColor: '#000' # 难度栏里「已通过题数」的数字颜色
+    bgColor: '#fff' # 日历背景色
+    subColors: ['#ebedf0', '#bef5cb', '#85e89d', '#34d058', '#1c992f'] # 由浅到深的 5 档色阶
+    # ===== 深色模式 =====
+    # 博客切到夜间模式时自动换用下面这套，不需要额外配置；
+    # 不写这三项就用默认值（即下面注释里的值，取自 GitHub 深色主题的热力图）
+    darkSubmitColor: '#c9d1d9' # 深色下的数字颜色（默认 #c9d1d9）
+    darkBgColor: '#161b22' # 深色下的日历背景色（默认 #161b22）
+    darkSubColors: ['#21262d', '#0e4429', '#006d32', '#26a641', '#39d353'] # 深色下的 5 档色阶（默认 #21262d/#0e4429/#006d32/#26a641/#39d353）
