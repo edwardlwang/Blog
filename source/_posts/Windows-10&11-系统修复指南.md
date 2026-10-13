@@ -3,6 +3,8 @@ title: Windows 10&11 系统修复指南
 date: 2026-10-04 12:24:21
 tags:
   - Windows
+  - DISM
+  - kernel
 categories: Operations & Maintenance
 ---
 
@@ -10,7 +12,7 @@ categories: Operations & Maintenance
 
 ## 前言
 
-Windows 11 在长期使用过程中，可能因系统文件损坏、驱动冲突、更新中断、引导配置异常等原因出现各类故障。这些故障的表现形式多样：系统运行缓慢、应用无法启动、蓝屏重启、网络连接异常、更新反复失败，乃至完全无法进入桌面。
+Windows 在长期使用过程中，可能因系统文件损坏、驱动冲突、更新中断、引导配置异常等原因出现各类故障。这些故障的表现形式多样：系统运行缓慢、应用无法启动、蓝屏重启、网络连接异常、更新反复失败，乃至完全无法进入桌面。
 
 应对这些问题的手段同样分层。Windows 内置了从轻量级命令行修复到彻底的系统重置等一整套恢复机制。理解这些工具的定位与适用场景，比盲目重装系统更为高效。
 
@@ -88,24 +90,6 @@ chkdsk /r C:
 ```
 
 `/r` 参数会扫描坏扇区并尝试恢复可读信息。检查其他分区时将 `C:` 替换为对应盘符。**注意**：`chkdsk /r` 在发现坏扇区时可能影响该区域的数据，执行前应确保重要数据已备份。
-
-### 2.4 电源计划与系统组件重置
-
-如果系统响应异常或电源管理行为异常，可以重置电源计划：
-
-```cmd
-powercfg -restoredefaultschemes
-```
-
-若“开始”菜单、任务栏、系统设置等基于 XAML 的现代应用出现故障，可以手动注册相关系统组件：
-
-```powershell
-Add-AppxPackage -Register -Path "C:\Windows\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\appxmanifest.xml" -DisableDevelopmentMode
-Add-AppxPackage -Register -Path "C:\Windows\SystemApps\Microsoft.UI.Xaml.CBS_8wekyb3d8bbwe\appxmanifest.xml" -DisableDevelopmentMode
-Add-AppxPackage -Register -Path "C:\Windows\SystemApps\MicrosoftWindows.Client.Core_cw5n1h2txyewy\appxmanifest.xml" -DisableDevelopmentMode
-```
-
-以上命令需在 PowerShell（管理员）中执行。
 
 ---
 
@@ -326,7 +310,7 @@ https://www.catalog.update.microsoft.com
 
 ## 六、修复顺序建议
 
-面对一个具体的 Windows 11 故障，建议按以下顺序排查，避免过度修复：
+面对一个具体的 Windows 故障，建议按以下顺序排查，避免过度修复：
 
 1. **明确故障现象**。是启动失败、更新错误、网络异常，还是性能问题？
 2. **执行系统文件修复**。SFC + DISM 是通用性最强的第一步，多数系统级异常可以从这里找到出路。
@@ -351,7 +335,7 @@ https://www.catalog.update.microsoft.com
 
 ## 八、总结
 
-Windows 11 的内置修复工具覆盖了从文件级到系统级的完整修复链路。掌握这些工具的定位和顺序，可以在绝大多数故障场景中避免不必要的数据丢失和重装开销。
+Windows 的内置修复工具覆盖了从文件级到系统级的完整修复链路。掌握这些工具的定位和顺序，可以在绝大多数故障场景中避免不必要的数据丢失和重装开销。
 
 核心命令速查：
 
