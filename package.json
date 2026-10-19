@@ -31,7 +31,7 @@
     "hexo-wordcount": "^6.0.1",
     "katex": "^0.16.28",
     "linkify-it": "^6.1.0",
-    "markdown-it": "^15.0.0"
+    "markdown-it": "^15.0.3"
   },
   "allowScripts": {
     "hexo-util@3.3.0": true,
