@@ -5,7 +5,7 @@ tags:
   - GPU
   - power
   - NVIDIA
-categories: O&M
+categories: 运维（O&M）
 ---
 
 ## 前言

@@ -5,7 +5,7 @@ tags:
   - Windows
   - DISM
   - kernel
-categories: O&M
+categories: 运维（O&M）
 ---
 
 # Windows 11 系统修复指南：从命令到恢复的完整路径
