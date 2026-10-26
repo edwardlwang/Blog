@@ -9,7 +9,7 @@ tags:
   - npm
   - nodejs
   - 缓存
-categories: O&M
+categories: 运维（O&M）
 ---
 
 ## 前言

@@ -4,7 +4,7 @@ date: 2026-09-16 16:20:11
 tags:
   - Greedy
   - 贪心
-categories: Algorithm
+categories: 算法（Agorithm）
 ---
 
 ## 前言

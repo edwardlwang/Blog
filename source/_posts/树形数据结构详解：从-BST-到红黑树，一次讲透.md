@@ -9,7 +9,7 @@ tags:
   - 树
   - 二叉树
   - 红黑树
-categories: Data Structure
+categories: 数据结构（Data Structure）
 ---
 
 ## 前言

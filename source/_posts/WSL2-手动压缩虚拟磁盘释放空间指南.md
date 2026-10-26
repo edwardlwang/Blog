@@ -7,7 +7,7 @@ tags:
   - Linux
   - disk compression
   - 磁盘压缩
-categories: O&M
+categories: 运维（O&M）
 ---
 
 WSL2 的虚拟磁盘文件 `ext4.vhdx` 只会动态扩展，**不会在删除 Linux 内部文件后自动收缩**。因此，如果你在 WSL 中删除了大量文件，Windows 侧的磁盘空间可能并不会立即释放，需要手动压缩虚拟磁盘。

@@ -6,7 +6,7 @@ tags:
   - 卸载
   - Python
   - Conda
-categories: O&M
+categories: 运维（O&M）
 ---
 
 ## 为什么要“彻底”卸载 Anaconda？

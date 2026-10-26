@@ -8,7 +8,7 @@ tags:
   - ADB
   - 安卓
   - 网络
-categories: O&M
+categories: 运维（O&M）
 ---
 
 ## 前言
