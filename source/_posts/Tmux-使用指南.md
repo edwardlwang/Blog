@@ -6,7 +6,7 @@ tags:
   - Linux
   - Shell
   - SSH
-categories: Linux
+categories: 工具
 ---
 
 > 会话保持、多窗格管理、远程协作的终端复用解决方案

@@ -6,6 +6,9 @@ tags:
   - AVL
   - B-tree
   - Trie
+  - 树
+  - 二叉树
+  - 红黑树
 categories: Data Structure
 ---
 
