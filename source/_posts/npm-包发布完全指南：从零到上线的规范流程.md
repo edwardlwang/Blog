@@ -3,8 +3,7 @@ title: npm 包发布完全指南：从零到上线的规范流程
 date: 2026-10-12 15:45:00
 tags:
   - npm
-  - nodejs
-categories: nodejs
+categories: Nodejs
 ---
 
 ## 前言

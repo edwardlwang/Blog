@@ -8,7 +8,8 @@ tags:
   - Python
   - npm
   - nodejs
-categories: Operations & Maintenance
+  - 缓存
+categories: 运维（O&M）
 ---
 
 ## 前言
