@@ -4,7 +4,8 @@ date: 2026-09-22 08:58:47
 tags:
   - GPU
   - power
-categories: NVIDIA
+  - NVIDIA
+categories: 运维（O&M）
 ---
 
 ## 前言

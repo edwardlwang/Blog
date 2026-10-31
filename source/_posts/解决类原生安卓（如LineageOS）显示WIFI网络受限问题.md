@@ -6,7 +6,9 @@ tags:
   - LineageOS
   - WiFi
   - ADB
-categories: Android
+  - 安卓
+  - 网络
+categories: 运维（O&M）
 ---
 
 ## 前言

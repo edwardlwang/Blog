@@ -6,7 +6,7 @@ tags:
   - 卸载
   - Python
   - Conda
-categories: Operations & Maintenance
+categories: 运维（O&M）
 ---
 
 ## 为什么要“彻底”卸载 Anaconda？
@@ -61,14 +61,14 @@ conda remove --prefix <PATH_TO_ENV_DIRECTORY> --all
 
 检查并手动删除以下目录（将 `<用户名>` 替换为实际用户名）：
 
-| 路径 | 说明 |
-|---|---|
-| `C:\Users\<用户名>\Anaconda3` | 安装根目录 |
-| `C:\ProgramData\Anaconda3` | 全局安装目录（隐藏文件夹） |
-| `C:\Users\<用户名>\.conda` | 用户配置目录 |
-| `C:\Users\<用户名>\.condarc` | 配置文件 |
-| `C:\Users\<用户名>\.continuum` | Anaconda 配置目录 |
-| `C:\Users\<用户名>\.anaconda_backup` | 备份目录 |
+| 路径                                 | 说明                       |
+| ------------------------------------ | -------------------------- |
+| `C:\Users\<用户名>\Anaconda3`        | 安装根目录                 |
+| `C:\ProgramData\Anaconda3`           | 全局安装目录（隐藏文件夹） |
+| `C:\Users\<用户名>\.conda`           | 用户配置目录               |
+| `C:\Users\<用户名>\.condarc`         | 配置文件                   |
+| `C:\Users\<用户名>\.continuum`       | Anaconda 配置目录          |
+| `C:\Users\<用户名>\.anaconda_backup` | 备份目录                   |
 
 ### 第三步：清理系统环境变量
 
@@ -239,13 +239,13 @@ conda --version
 
 无论哪个平台，卸载完成后建议逐项检查：
 
-| 验证项 | 命令 | 预期结果 |
-|---|---|---|
-| conda 命令是否失效 | `conda --version` | 提示命令未找到 |
-| conda 路径是否清除 | `which conda`（Linux/macOS）/ `where conda`（Windows） | 无输出或指向系统路径 |
-| PATH 是否干净 | `echo $PATH \| grep -i conda` | 无匹配结果 |
-| Python 是否恢复系统版本 | `python --version` | 显示系统自带 Python 版本 |
-| Shell 配置是否干净 | `grep -n "conda initialize" ~/.zshrc ~/.bashrc` | 无匹配结果 |
+| 验证项                  | 命令                                                   | 预期结果                 |
+| ----------------------- | ------------------------------------------------------ | ------------------------ |
+| conda 命令是否失效      | `conda --version`                                      | 提示命令未找到           |
+| conda 路径是否清除      | `which conda`（Linux/macOS）/ `where conda`（Windows） | 无输出或指向系统路径     |
+| PATH 是否干净           | `echo $PATH \| grep -i conda`                          | 无匹配结果               |
+| Python 是否恢复系统版本 | `python --version`                                     | 显示系统自带 Python 版本 |
+| Shell 配置是否干净      | `grep -n "conda initialize" ~/.zshrc ~/.bashrc`        | 无匹配结果               |
 
 ## 常见问题 FAQ
 

@@ -7,7 +7,7 @@ tags:
   - 雾凇拼音
   - Windows
   - 输入法
-categories: Operations & Maintenance
+categories: 工具（Tools）
 ---
 
 本文整理 Windows 下小狼毫（Weasel）+ 雾凇拼音的安装、部署、个性化配置，以及如何按应用分配中英文初始模式。
