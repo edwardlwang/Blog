@@ -151,17 +151,6 @@ git clone https://gitee.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.o
 
 > **重要**：该插件必须放在 `plugins` 列表的**最后一位**，否则会影响其他插件功能。
 
-### zsh-autocomplete（智能补全）
-
-快速、上下文感知的命令补全，按 Tab 即可展示候选列表。
-
-```bash
-git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git $ZSH_CUSTOM/plugins/zsh-autocomplete
-
-# 国内镜像
-git clone --depth 1 -- https://gitee.com/marlonrichert/zsh-autocomplete.git $ZSH_CUSTOM/plugins/zsh-autocomplete
-```
-
 ### 其他推荐插件（可选）
 
 | 插件名称                   | 功能说明                          |
@@ -181,7 +170,6 @@ git clone --depth 1 -- https://gitee.com/marlonrichert/zsh-autocomplete.git $ZSH
 plugins=(
     git
     zsh-autosuggestions
-    zsh-autocomplete
     colored-man-pages
     history-substring-search
     zsh-completions
