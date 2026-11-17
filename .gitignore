@@ -13,3 +13,7 @@ db.json
 _config.landscape.yml
 
 public/
+
+package-lock.json
+
+yarn.lock
